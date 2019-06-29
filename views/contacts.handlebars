@@ -1,6 +1,6 @@
 <div>
 	<a class="nav-button btn btn-primary" href="/contacts/new" role="button">Add New Contact</a>
-	<h1>?????'s Contacts:</h1>
+	<h1>{{name}}'s {{#if type}} {{type}} {{/if}} Contacts:</h1>
 </div>
 <div class="form-group">
 	<label for="filterContacts">Filter by Type</label>
@@ -24,6 +24,16 @@
 	</thead>
 	<tbody>
 		{{!-- Our Handlebars code goes here! --}}
+		{{#each contacts}}
+		<tr data-id="{{id}}">
+			<td>{{this.firstName}}</td>
+			<td>{{lastName}}</td>
+			<td>{{contactType}}</td>
+			<td>{{phoneNumber}}</td>
+			<td>{{emailAddress}}</td>
+			<td><span class="delete glyphicon glyphicon-remove"></span></td>
+		</tr>
+		{{/each}}
 		{{!-- <td><span class="delete glyphicon glyphicon-remove"></span></td> --}}
 	</tbody>
 </table>
